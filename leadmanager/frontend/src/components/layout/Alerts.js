@@ -16,10 +16,13 @@ export class Alerts extends Component {
       if (error.msg.email) alert.error(`Name: ${error.msg.email.join()}`); // comes in an array, need to join them to make a string.
       if (error.msg.message)
         alert.error(`message: ${error.msg.message.join()}`);
+      if (error.msg.non_field_errors) alert.error(error.msg.non_field_errors.join());
+      if (error.msg.username) alert.error(`Name: ${error.msg.username.join()}`);
     }
     if (message !== prevProps.message) {
       if (message.deleteLead) alert.success(message.deleteLead);
       if (message.addLead) alert.success(message.addLead);
+      if (message.passwordNotMatch) alert.error(message.passwordNotMatch)
     }
   }
 
