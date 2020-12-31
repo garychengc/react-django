@@ -39,8 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'leads',
     'rest_framework',
-    'frontend'
+    'frontend',
+    'knox',
+    'accounts'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',) # need the trailing comma, cuz of tuple. If not added, it will be read as a string.
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
